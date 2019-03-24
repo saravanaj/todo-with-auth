@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
 
     if (this.signupForm.valid) {
       this.commonService.post('register', this.signupForm.getRawValue())
-        .subscribe(successResponse => {
+        .subscribe((successResponse : any) => {
           this.commonService.setToken(successResponse.token, successResponse.username);
           this.successMessage = "User successfully created.";
           //this.router.navigate(['']);

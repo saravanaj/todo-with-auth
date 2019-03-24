@@ -18,6 +18,7 @@ module.exports = {
         router.post('/register', accountController.register);
 
         router.get('/todo', todoController.getAll);
+        router.get('/todo/:todoId', todoController.getById);
         router.post('/todo', todoController.saveTodoList);
         router.put('/todo/:todoId', todoController.saveTodoList);
         router.delete('/todo/:todoId', todoController.deleteTodoList);

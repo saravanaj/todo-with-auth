@@ -8,11 +8,18 @@ module.exports = {
         });
     },
 
+    async getById(userId, todoId) {
+        return await db.TodoList.findOne({
+            createdBy: userId,
+            _id: todoId
+        });
+    },
+
     async saveTodoList(todoId, todoListObj) {
         const id = todoListObj._id || todoId;
         if (id) {
             delete todoListObj._id;
-            return await db.TodoList.findOneAndUpdate(id, todoListObj, {
+            return await db.TodoList.findByIdAndUpdate(id, todoListObj, {
                 new: true
             });
         }

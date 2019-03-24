@@ -1,3 +1,50 @@
-<p>
-  todo-list-items works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 hidden-xs"></div>
+    <div class="col-md-6 col-xs-12">
+      <span class='h3'>TODO List: {{todo.listName}} </span>
+    </div>
+    <div class="col-md-3 hidden-xs"></div>
+  </div>
+  <br />
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs"></div>
+    <div class="col-md-6 col-xs-12">
+        <div class="alert alert-success alert-dismissible" [hidden]="!successMessage">
+            <a (click)="successMessage = '' " class="close pointer" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> {{successMessage}}
+          </div>
+      <div class="input-group">
+        <input type="text" class="form-control" #listItem placeholder="Add an item to the list">
+        <div class="input-group-addon hover-cursor" (click)="addListItem(listItem)">
+          <i class="fa fa-plus-circle fa-lg"></i>
+        </div>
+      </div>
+      <br />
+      <div>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let item of todo.listItems">
+            <span class="hover-cursor" [class.text-success]="item.isCompleted" (click)="item.isCompleted = !item.isCompleted">
+              <i class="fa fa-lg" [ngClass]="item.isCompleted?'fa-check-circle-o':'fa-circle-thin'"></i>
+            </span>
+            {{item.listItemName}}
+            <span class="hover-cursor text-danger pull-right" (click)="deleteListItem(item)">
+              <i class="fa fa-trash-o fa-lg"></i>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3 hidden-xs"></div>
+  </div>
+  <div class="row">
+      <div class="col-md-3 hidden-xs"></div>
+      <div class="col-md-6 col-xs-12">
+        <button type="submit" (click)="saveListItems()" class="btn btn-primary"> Save List Items</button> &nbsp; <button (click)="backToList()"  class="btn btn-default"> Back to List</button>
+      </div>
+      <div class="col-md-3 hidden-xs"></div>
+    </div>
+
+
+</div>

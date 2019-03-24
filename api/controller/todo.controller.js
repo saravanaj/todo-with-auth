@@ -9,6 +9,12 @@ module.exports = {
             .catch(err => next(err));
     },
 
+    getById(req, res, next) {
+        return todoService.getById(req.loggedInUserId, req.params.todoId)
+            .then(todo => res.json(todo))
+            .catch(err => next(err));
+    },
+
     saveTodoList(req, res, next) {
         const todoListObj = req.body;
         todoListObj.createdBy = req.loggedInUserId;

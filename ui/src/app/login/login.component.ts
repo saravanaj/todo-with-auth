@@ -33,10 +33,9 @@ export class LoginComponent implements OnInit {
 
     if (this.loginForm.valid) {
       this.commonService.post('login', this.loginForm.getRawValue())
-        .subscribe(successResponse => {
-          this.commonService.setToken(successResponse.token, successResponse.username);
+        .subscribe((successResponse : any) => {
+          successResponse && this.commonService.setToken(successResponse.token, successResponse.username);
           this.successMessage = "Login successful.";
-          //this.router.navigate(['']);
         }, response => {
           this.errorMessage = response.error.message || '';
         })

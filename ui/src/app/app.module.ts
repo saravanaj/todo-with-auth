@@ -13,6 +13,7 @@ import { TodoListItemsComponent } from './todo-list-items/todo-list-items.compon
 import { TokenInterceptor } from './auth/token-interceptor';
 import { CommonService } from './common/common.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     {

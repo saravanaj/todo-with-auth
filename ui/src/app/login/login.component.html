@@ -6,11 +6,11 @@
         <h1>Login</h1>
         <hr />
         <div class="alert alert-success alert-dismissible" [hidden]="!successMessage">
-          <a href="#" (click)="successMessage = '' " class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <a (click)="successMessage = '' " class="close pointer" data-dismiss="alert" aria-label="close">&times;</a>
           <strong>Success!</strong> {{successMessage}}
         </div>
         <div class="alert alert-danger alert-dismissible" [hidden]="!errorMessage">
-          <a href="#" (click)="errorMessage = '' " class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <a (click)="errorMessage = '' " class="close pointer" data-dismiss="alert" aria-label="close">&times;</a>
           <strong>Error!</strong> {{errorMessage}}
         </div>
         <div class="form-group">

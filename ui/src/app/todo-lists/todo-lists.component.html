@@ -1,3 +1,27 @@
-<p>
-  todo-lists works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <span class="h3 hidden-xs">Your TODO Lists (click on each item to see its contents):</span>
+      <form class="form-inline pull-right" [formGroup]="addListForm" (ngSubmit)="addList()">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" formControlName="listName" [ngClass]="{ 'is-invalid': submitted && f.listName.errors }" class="form-control" placeholder="List Name">
+            </div>
+          </div> &nbsp;
+          <button type="submit" class="btn btn-primary"> Add a list</button>
+        </form>
+    </div>
+  </div>
+
+  <br />
+  <ul class="list-group">
+    <li class='h4 list-group-item' *ngFor="let item of todoLists;">
+      <span>
+        <a routerLink="todo/{{item._id}}"> {{item.listName}} </a>
+        <a class="h5 pointer delete-list pull-right" (click)="deleteList(item._id)">
+          <span class="glyphicon glyphicon-trash"></span> Delete</a>
+      </span>
+    </li>
+  </ul>
+
+</div>
